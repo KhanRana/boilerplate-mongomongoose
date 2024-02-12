@@ -5,6 +5,8 @@ const mongoose = require("mongoose");
 mongoose.connect(process.env.MONGO_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
+}).then(() => {
+  console.log(`Mongo db connected`);
 });
 
 // Define a schema
@@ -21,10 +23,14 @@ const personSchema = new Schema({
 });
 
 //Create model for the person
-let Person = mongoose.model("Person", personSchema);
+const Person = mongoose.model("Person", personSchema);
 
 const createAndSavePerson = (done) => {
-  done(null /*, data*/);
+  done(null, { 
+    name:'Rana',
+    age: 30,
+    favouriteFoods: ['pizza', 'pasta']
+  } /*, data*/);
 };
 
 const createManyPeople = (arrayOfPeople, done) => {
