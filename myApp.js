@@ -13,7 +13,7 @@ const Schema = mongoose.Schema;
 //Create schema for a person
 const personSchema = new Schema({
   name: {
-    String,
+    type: String,
     required: true,
   },
   age: Number,
