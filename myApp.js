@@ -1,15 +1,26 @@
 require("dotenv").config();
 const mongoose = require("mongoose");
 
+mongoose.set("strictQuery", false);
 //Connect to the database
 mongoose
-  .connect(process.env.MONGO_URI, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  })
-  .then(() => {
-    console.log(`Mongo db connected`);
-  });
+  .connect(
+    process.env.MONGO_URI,
+    {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    },
+    (err, db) => {
+      if (err) {
+        console.log(err);
+      } else {
+        console.log("connected to " + process.env.MONGO_URI);
+      }
+    }
+  )
+  // .then(() => {
+  //   console.log(`Mongo db connected`);
+  // });
 
 // Define a schema
 const Schema = mongoose.Schema;
@@ -27,19 +38,21 @@ const personSchema = new Schema({
 //Create model for the person
 const Person = mongoose.model("Person", personSchema);
 
-const createAndSavePerson = (done) => {
+const createAndSavePerson = () => {
   const programmer = new Person({
     name: "Rana",
     age: 30,
-    favouriteFoods: ["pizza", "pasta"]
+    favouriteFoods: ["pizza", "pasta"],
   });
   programmer.save((err, data) => {
     if (err) {
       return done(err);
-    } else done(null, data);
-  });
-};
+    } else {
+      console.log(data)
+      // done(null, data)};
+  }})};
 
+createAndSavePerson();
 const createManyPeople = (arrayOfPeople, done) => {
   done(null /*, data*/);
 };
@@ -67,7 +80,7 @@ const findAndUpdate = (personName, done) => {
 
   done(null /*, data*/);
 };
-``
+``;
 const removeById = (personId, done) => {
   done(null /*, data*/);
 };
