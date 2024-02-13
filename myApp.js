@@ -46,7 +46,7 @@ const createAndSavePerson = () => {
   });
   programmer.save((err, data) => {
     if (err) {
-      return done(err);
+      // return done(err);
     } else {
       console.log(data)
       // done(null, data)};
