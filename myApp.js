@@ -31,7 +31,7 @@ const createAndSavePerson = (done) => {
   const programmer = new Person({
     name: "Rana",
     age: 30,
-    favouriteFoods: ["pizza", "pasta"],
+    favouriteFoods: ["pizza", "pasta"]
   });
   programmer.save((err, data) => {
     if (err) {
@@ -67,7 +67,7 @@ const findAndUpdate = (personName, done) => {
 
   done(null /*, data*/);
 };
-
+``
 const removeById = (personId, done) => {
   done(null /*, data*/);
 };
