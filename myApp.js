@@ -9,18 +9,16 @@ mongoose
     {
       useNewUrlParser: true,
       useUnifiedTopology: true,
-    },
-    (err, db) => {
-      if (err) {
-        console.log(err);
-      } else {
-        console.log("connected to " + process.env.MONGO_URI);
-      }
-    }
-  )
-  // .then(() => {
-  //   console.log(`Mongo db connected`);
-  // });
+    })
+  //   (err, db) => {
+  //     if (err) {
+  //       console.log(err);
+  //     } else {
+  //       console.log("connected to " + process.env.MONGO_URI);
+  //     }
+  //   }
+  // )
+
 
 // Define a schema
 const Schema = mongoose.Schema;
