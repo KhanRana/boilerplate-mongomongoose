@@ -37,14 +37,14 @@ const personSchema = new mongoose.Schema({
 const Person = mongoose.model("Person", personSchema);
 
 //Create a document and save it to the database
-const createAndSavePerson = new Person({ name: 'Harrison', age: 25, favouriteFoods: ['pizza', 'indian'] })
-createAndSavePerson.save()
-  .then((doc) => {
-    console.log(doc);
-  })
-  .catch((err) => {
-    console.log(err);
-  })
+// const createAndSavePerson = new Person({ name: 'Harrison', age: 25, favouriteFoods: ['pizza', 'indian'] })
+// createAndSavePerson.save()
+//   .then((doc) => {
+//     console.log(doc);
+//   })
+//   .catch((err) => {
+//     console.log(err);
+//   })
 
 const createManyPeople = (arrayOfPeople, done) => {
   done(null /*, data*/);
