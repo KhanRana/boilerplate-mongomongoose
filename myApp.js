@@ -48,7 +48,8 @@ const createAndSavePerson = function(done) {
   })
 }
 
-// createAndSavePerson();
+createAndSavePerson();
+
 const createManyPeople = (arrayOfPeople, done) => {
   done(null /*, data*/);
 };
