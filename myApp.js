@@ -10,21 +10,21 @@ mongoose
       useNewUrlParser: true,
       useUnifiedTopology: true,
     })
-  //   (err, db) => {
-  //     if (err) {
-  //       console.log(err);
-  //     } else {
-  //       console.log("connected to " + process.env.MONGO_URI);
-  //     }
-  //   }
-  // )
+//   (err, db) => {
+//     if (err) {
+//       console.log(err);
+//     } else {
+//       console.log("connected to " + process.env.MONGO_URI);
+//     }
+//   }
+// )
 
 
 // Define a schema
-const Schema = mongoose.Schema;
+// const Schema = mongoose.Schema;
 
 //Create schema for a person
-const personSchema = new Schema({
+const personSchema = new mongoose.Schema({
   name: {
     type: String,
     required: true,
@@ -36,19 +36,15 @@ const personSchema = new Schema({
 //Create model for the person
 const Person = mongoose.model("Person", personSchema);
 
-const createAndSavePerson = function(done) {
-  const human = new Person({name: 'Harrison', age: 25, favouriteFoods: ['pizza', 'indian']})
-  human.save(function(err, data){
-    if (err) {
-      return done(err)
-    }
-    else {
-      done(null, data)
-    }
+//Create a document and save it to the database
+const createAndSavePerson = new Person({ name: 'Harrison', age: 25, favouriteFoods: ['pizza', 'indian'] })
+createAndSavePerson.save()
+  .then((doc) => {
+    console.log(doc);
   })
-}
-
-createAndSavePerson();
+  .catch((err) => {
+    console.log(err);
+  })
 
 const createManyPeople = (arrayOfPeople, done) => {
   done(null /*, data*/);
