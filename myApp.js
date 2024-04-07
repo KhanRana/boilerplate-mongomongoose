@@ -49,8 +49,6 @@ const createAndSavePerson = (done) => {
   });
 };
 
-createAndSavePerson();
-
 const createManyPeople = (arrayOfPeople, done) => {
   done(null /*, data*/);
 };
