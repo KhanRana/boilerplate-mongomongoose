@@ -30,24 +30,24 @@ const personSchema = new mongoose.Schema({
     required: true,
   },
   age: Number,
-  favouriteFoods: [String],
+  favoriteFoods: [String],
 });
 
 //Create model for the person
 const Person = mongoose.model("Person", personSchema);
 
 //Create a document and save it to the database
-const createAndSavePerson = (done) => {
-  const person = new Person({
-    name: 'Brian',
-    age: 26,
-    favoriteFoods: ['Rice', 'Beans', 'Oat'],
-  });
-  person.save((err, data) => {
-    if (err) return console.error(err);
-    done(null, data);
-  });
-};
+// const createAndSavePerson = (done) => {
+//   const person = new Person({
+//     name: 'Brian',
+//     age: 26,
+//     favoriteFoods: ['Rice', 'Beans', 'Oat'],
+//   });
+//   person.save((err, data) => {
+//     if (err) return console.error(err);
+//     done(null, data);
+//   });
+// };
 
 const createManyPeople = (arrayOfPeople, done) => {
   done(null /*, data*/);
