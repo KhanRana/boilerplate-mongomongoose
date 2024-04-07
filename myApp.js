@@ -38,15 +38,15 @@ const Person = mongoose.model("Person", personSchema);
 
 //Create a document and save it to the database
 const createAndSavePerson = (done) => {
-//   const person = new Person({
-//     name: 'Brian',
-//     age: 26,
-//     favoriteFoods: ['Rice', 'Beans', 'Oat'],
-//   });
-//   person.save((err, data) => {
-//     if (err) return console.error(err);
+  const person = new Person({
+    name: 'Rana',
+    age: 36,
+    favoriteFoods: ['Rice', 'Beans', 'Oat'],
+  });
+  person.save((err, data) => {
+    if (err) return console.error(err);
     done(null, data);
-  // });
+  });
 };
 
 const createManyPeople = (arrayOfPeople, done) => {
